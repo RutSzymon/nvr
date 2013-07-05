@@ -1,8 +1,10 @@
 class Nvr
   attr_accessor :nip
 
-  def initialize(value)
-    self.nip = value
+  def initialize(options = {})
+    options.each do |key, value|
+      send "#{key}=", value
+    end
   end
 
   def good
