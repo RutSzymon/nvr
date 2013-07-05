@@ -1,5 +1,11 @@
+require "active_model"
+
 class Nvr
+  include ActiveModel::Validations
+
   attr_accessor :nip
+
+  validates :nip, presence: true
 
   def initialize(options = {})
     options.each do |key, value|

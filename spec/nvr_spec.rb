@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 describe Nvr do
-  before(:each) do
-    @nip = Nvr.new(nip: "123456789")
+  describe "via validations" do
+    it "should verify presence of nip" do
+      @nvr = Nvr.new
+      @nvr.should_not be_valid
+    end
   end
-  it { @nip.good.should eq("1234567891") }
 end
