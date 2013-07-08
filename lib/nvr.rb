@@ -5,7 +5,7 @@ class Nvr
 
   attr_accessor :nip
 
-  validates :nip, presence: true
+  validates :nip, presence: true, length: { is: 10 }
 
   def initialize(options = {})
     options.each do |key, value|
