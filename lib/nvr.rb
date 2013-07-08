@@ -8,12 +8,6 @@ class Nvr
   validates :nip, presence: true, numericality: true, length: { is: 10 }
 
   def initialize(options = {})
-    options.each do |key, value|
-      send "#{key}=", value
-    end
-  end
-
-  def good
-    @nip + "1"
+    self.nip = options[:nip]
   end
 end
