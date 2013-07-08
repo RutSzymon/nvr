@@ -7,7 +7,7 @@ class Nvr
 
   validates :nip, presence: true, numericality: true, length: { is: 10 }
 
-  def initialize(options = {})
-    self.nip = options[:nip]
+  def initialize(value)
+    self.nip = value
   end
 end
