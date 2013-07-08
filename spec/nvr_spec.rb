@@ -40,5 +40,10 @@ describe Nvr do
         @nvr.should be_valid
       end
     end
+
+    it "nip always should be a string" do
+      @nvr = Nvr.new(1234567890)
+      @nvr.nip.should eq("1234567890")
+    end
   end
 end

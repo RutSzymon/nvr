@@ -10,4 +10,8 @@ class Nvr
   def initialize(value)
     self.nip = value
   end
+
+  def nip=(value)
+    @nip = value.to_s
+  end
 end
