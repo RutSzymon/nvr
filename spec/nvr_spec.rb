@@ -23,5 +23,22 @@ describe Nvr do
         @nvr.should be_valid
       end
     end
+
+    context "should verify numericality of nip" do
+      it "shouldn't accept only letters" do
+        @nvr = Nvr.new(nip: "abcdefghij")
+        @nvr.should_not be_valid
+      end
+
+      it "shouldn't accept numbers with letters" do
+        @nvr = Nvr.new(nip: "12345678a0")
+        @nvr.should_not be_valid
+      end
+
+      it "should accept only numbers" do
+        @nvr = Nvr.new(nip: "1234567890")
+        @nvr.should be_valid
+      end
+    end
   end
 end
