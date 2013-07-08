@@ -13,7 +13,7 @@ class Nvr
   end
 
   def nip=(value)
-    @nip = value.to_s
+    @nip = value.to_s.delete(" ").delete("-")
   end
 
   private
