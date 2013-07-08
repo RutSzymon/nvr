@@ -8,27 +8,15 @@ describe Nvr do
     end
 
     context "should verify length of nip" do
-      it "length of nip shouldn't be shorter than 10" do
-        @nvr = Nvr.new("12345")
-        @nvr.should_not be_valid
-      end
+      it { Nvr.new("12345").should_not be_valid }
 
-      it "length of nip shouldn't be longer than 10" do
-        @nvr = Nvr.new("12345678901")
-        @nvr.should_not be_valid
-      end
+      it { Nvr.new("12345678901").should_not be_valid }
     end
 
     context "should verify numericality of nip" do
-      it "shouldn't accept only letters" do
-        @nvr = Nvr.new("abcdefghij")
-        @nvr.should_not be_valid
-      end
+      it { Nvr.new("abcdefghij").should_not be_valid }
 
-      it "shouldn't accept numbers with letters" do
-        @nvr = Nvr.new("12345678a0")
-        @nvr.should_not be_valid
-      end
+      it { Nvr.new("12345678a0").should_not be_valid }
     end
 
     it "nip always should be a string" do
@@ -38,13 +26,11 @@ describe Nvr do
 
     context "checksum" do
       it "shouldn't accept incorrect nip number" do
-        @nvr = Nvr.new("1234567890")
-        @nvr.should_not be_valid
+        Nvr.new("1234567890").should_not be_valid
       end
 
       it "should accept correct nip number" do
-        @nvr = Nvr.new("2010000304")
-        @nvr.should be_valid
+        Nvr.new("2010000304").should be_valid
       end
     end
   end
