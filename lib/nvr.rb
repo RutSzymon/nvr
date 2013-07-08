@@ -16,14 +16,18 @@ class Nvr
     @nip = value.to_s
   end
 
+  private
   def checksum
-    a = [6, 5, 7, 2, 3, 4, 5, 6, 7]
-    s = 0
+    errors.add(:nip) unless control_number == nip[9].to_i
+  end
 
-    for i in 0..8
-      s += (nip[i].to_i*a[i])
-    end
-    lk = (s % 11)
-    errors.add(:nip) unless lk == nip[9].to_i
+  def control_number
+    s = 0
+    (0..8).each { |i| s += (nip[i].to_i*control_array[i]) }
+    s % 11
+  end
+
+  def control_array
+    [6, 5, 7, 2, 3, 4, 5, 6, 7]
   end
 end
