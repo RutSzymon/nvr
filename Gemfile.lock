@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nvr (0.0.1)
+    nvr (1.0.1)
       activemodel
 
 GEM
