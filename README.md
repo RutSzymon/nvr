@@ -20,7 +20,15 @@ Or install it yourself as:
 
 Just build new object of Nvr class with NIP and call valid? method:
 
-	$ Nvr.new("NIP").valid?
+	Nvr.new("NIP").valid?
+
+## Example
+
+	validate :verify_nip
+
+	def verify_nip
+	 	errors.add(:nip) unless Rvr.new(nip).valid?
+	end
 
 ## Contributing
 
